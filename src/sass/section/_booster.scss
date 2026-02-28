@@ -1,0 +1,89 @@
+.booster {
+}
+
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding: 40px;
+  list-style: none;
+  margin: 0;
+}
+
+
+
+.event-card {
+    position: relative;
+background-image: url(../../img/backk.png);
+  border-radius: 20px;
+
+  
+    background-repeat: no-repeat;
+background-position: 100% 50%;
+  transition: transform 0.35s ease, background-position 0.35s ease;
+
+}
+.event-card:hover {
+  transform: translateY(-8px);
+  background-position: 100% 40%;
+}
+
+.event__back {
+    position: absolute;
+    top: 0px;
+}
+
+.event-img {
+width: 195.0px;
+margin: auto;
+height: 227.0px;
+border-radius: 50px 0;
+background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+
+  object-fit: cover;
+}
+
+.event-title {
+  color: #fff;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.event-date {
+  color: #ff3d9a;
+  margin: 0 10px 5px;
+}
+
+.event-place {
+  margin: 0 10px 15px;
+  color: #aaa;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 60px;
+  font-family: Montserrat, sans-serif;
+}
+
+.page-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.page-btn:hover {
+  background: rgba(255, 61, 154, 0.2);
+}
+
+.page-btn.active {
+  background: rgba(255, 61, 154, 0.3);
+  border: 1px solid rgba(255, 61, 154, 0.4);
+}

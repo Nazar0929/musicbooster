@@ -1,3 +1,98 @@
-h1 {
-    color: red;
+
+
+
+.header {
+            background-image: url(../../img/pic.png);
+
+    background-color: rgb(0, 0, 0);
+        background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    overflow: hidden;
+
+    &__title {
+        width: 589.0px;
+        height: 162.0px;
+
+
+
+
+color: #DC56C5;
+padding-top: 40px;
+margin-bottom: 65px;
+text-align: center;
+margin: auto;
+font-family: Montserrat;
+font-size: 50px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+
+
+    }
+
+
+    &__link {
+            position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    }
+
+    &__form {
+        padding-bottom: 200px;
+        margin-top: 65px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+&__input {
+    width: 270px;
+    height: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
 }
+
+&__input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+&__input:focus {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+    &__icon {
+          position: relative;
+}
+
+    &__icons {
+        position: absolute;
+        top: 14.5px;
+        right: 30px;
+    }
+
+        &__iconss {
+        position: absolute;
+        top: 17px;
+        right: 30px;
+    }
+
+}
+
