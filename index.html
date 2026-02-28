@@ -17,18 +17,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
     <script type="module" crossorigin src="/musicbooster/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/musicbooster/assets/index-dddf5092.css">
+    <link rel="stylesheet" href="/musicbooster/assets/index-b44a85f9.css">
   </head>
   <body>
    
     <!-- Loads the specified .html file -->
 
-    <header>
+    <header class="header">
+
     <div class="container">
-        <h1>hello worlds</h1>
+        <a href="./header.html" class="header__link"><img src="../img/logo.png" alt=""></a>
+        <h1 class="header__title">FIND BEST EVENTS
+AROUND THE WORLD</h1>
+
+<form action="" class="header__form">
+    <div class="header__icon">
+        <input type="text" class="header__input" placeholder="Start searching">
+        <img src="../img/searchicon.png" alt="" class="header__icons">
+    </div>
+    <div class="header__icon">
+        <input type="text" class="header__input" placeholder="Choose country">
+        <img src="../img/polygon.png" alt="" class="header__icons">
+    </div>
+</form>
     </div>
 </header>
-    
+    <section class="booster">
+    <div class="container">
+
+<ul class="events-list"></ul>
+<!-- <div class="event__back"><img src="../img/backk.png" alt=""></div> -->
+<div class="pagination" id="pagination"></div>
+
+    </div>
+</section>
     <footer class="footer">
     <div class="container">
         <p class="footer__text">© 2021 | All Rights Reserved | <span>Developed with<a
