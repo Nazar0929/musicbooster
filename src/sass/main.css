@@ -20,6 +20,10 @@ h1, h2, h3, p, ul {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ширина */
 ::-webkit-scrollbar {
   width: 6px;
@@ -169,22 +173,21 @@ body {
 }
 
 .event-card {
-  position: relative;
-  background-image: url(../../img/backk.png);
   border-radius: 20px;
   background-repeat: no-repeat;
   background-position: 100% 50%;
   transition: transform 0.35s ease, background-position 0.35s ease;
 }
 
-.event-card:hover {
-  transform: translateY(-8px);
-  background-position: 100% 40%;
-}
-
-.event__back {
+.event-card::after {
+  content: "";
   position: absolute;
-  top: 0px;
+  top: 50px;
+  z-index: 10;
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  box-sizing: border-box;
+  border-radius: 50px 0;
+  pointer-events: none;
 }
 
 .event-img {
@@ -223,22 +226,26 @@ body {
 
 .page-btn {
   padding: 6px 12px;
-  border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
   color: #fff;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid transparent;
 }
 
 .page-btn:hover {
-  background: rgba(255, 61, 154, 0.2);
+  border-radius: 10px 0;
+  border: 1px solid rgba(255, 61, 154, 0.4);
+  color: rgba(255, 61, 154, 0.4);
 }
 
 .page-btn.active {
-  background: rgba(255, 61, 154, 0.3);
+  border-radius: 10px 0;
+  border: 1px solid rgba(255, 61, 154, 0.4);
+  color: rgba(255, 61, 154, 0.4);
+}
+
+.page-btn.active:hover {
   border: 1px solid rgba(255, 61, 154, 0.4);
 }
 
@@ -268,4 +275,68 @@ body {
 .footer__heart {
   color: crimson;
   font-size: 20px;
+}
+
+.scroll-up {
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  color: #ff0dbf;
+  visibility: hidden;
+  border-radius: 50px;
+  box-shadow: inset 0 0 1 4px #fff;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 1000;
+}
+
+@media (min-width: 768px) {
+  .scroll-up {
+    right: 30px;
+    bottom: 30px;
+  }
+}
+.scroll-up:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  content: "";
+}
+
+.scroll-up:hover {
+  color: #ff0dbf;
+}
+
+.scroll-up--active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.scroll-up__svg-path {
+  box-sizing: border-box;
+  fill: none;
+  stroke: #ff0dbf;
+  stroke-width: 4px;
+  transition: 0.2s;
+}
+
+.scroll-up:hover {
+  transform: scale(1.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.scroll-up__svg-arrow {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 17%;
+  left: 17%;
+  fill: #ff0dbf;
 }/*# sourceMappingURL=main.css.map */

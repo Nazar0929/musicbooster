@@ -15,6 +15,10 @@ h1, h2, h3, p, ul{
     padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ширина */
 ::-webkit-scrollbar {
   width: 6px;

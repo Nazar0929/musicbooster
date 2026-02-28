@@ -12,25 +12,36 @@
 
 
 .event-card {
-    position: relative;
-background-image: url(../../img/backk.png);
+    // position: relative;
+  // background-image: url(../../img/backk.png);
   border-radius: 20px;
-
-  
     background-repeat: no-repeat;
 background-position: 100% 50%;
   transition: transform 0.35s ease, background-position 0.35s ease;
 
 }
-.event-card:hover {
-  transform: translateY(-8px);
-  background-position: 100% 40%;
+
+.event-card::after {
+    // background-image: url(../../img/backk.png);
+  content: "";
+  position: absolute;
+  top: 50px;
+  z-index: 10;
+  border: 1px solid rgba(220, 86, 197, .3);
+  box-sizing: border-box;
+  border-radius: 50px 0;
+  pointer-events: none;
 }
 
-.event__back {
-    position: absolute;
-    top: 0px;
-}
+// .event-card:hover {
+//   transform: translateY(-8px);
+//   background-position: 100% 40%;
+// }
+
+// .event__back {
+//     position: absolute;
+//     top: 0px;
+// }
 
 .event-img {
 width: 195.0px;
@@ -41,6 +52,7 @@ background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 
   object-fit: cover;
 }
+
 
 .event-title {
   color: #fff;
@@ -68,21 +80,30 @@ background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 
 .page-btn {
   padding: 6px 12px;
-  border-radius: 8px;
+  // border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
   color: #fff;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  // background: rgba(255, 255, 255, 0.1);
+  border: 1px solid transparent;
+ 
 }
 
 .page-btn:hover {
-  background: rgba(255, 61, 154, 0.2);
+  border-radius: 10px 0;
+  border: 1px solid rgba(255, 61, 154, 0.4);
+  color: rgba(255, 61, 154, 0.4);
+  // background: rgba(255, 61, 154, 0.2);
+  
 }
 
 .page-btn.active {
-  background: rgba(255, 61, 154, 0.3);
+  border-radius: 10px 0;
+  border: 1px solid rgba(255, 61, 154, 0.4);
+  color: rgba(255, 61, 154, 0.4);
+}
+.page-btn.active:hover
+ {
   border: 1px solid rgba(255, 61, 154, 0.4);
 }
