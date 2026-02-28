@@ -19,17 +19,17 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ширина */
+
 ::-webkit-scrollbar {
   width: 6px;
 }
 
-/* дорожка */
+
 ::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* бегунок */
+
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 61, 154, 0.4);
   backdrop-filter: blur(6px);
@@ -38,7 +38,7 @@ html {
   transition: 0.3s;
 }
 
-/* hover */
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 61, 154, 0.7);
 }
