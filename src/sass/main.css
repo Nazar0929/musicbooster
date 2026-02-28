@@ -52,4 +52,32 @@ body {
 
 h1 {
   color: red;
+}
+
+.footer {
+  padding: 40px 0px;
+}
+
+.footer__text {
+  font-size: 16px;
+  text-align: center;
+  color: #939393;
+}
+@media screen and (min-width: mobile) {
+  .footer__text {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    font-size: 14px;
+  }
+}
+.footer__link {
+  cursor: pointer;
+}
+.footer__link:hover, .footer__link:focus {
+  color: #DC56C5;
+}
+.footer__heart {
+  color: crimson;
+  font-size: 20px;
 }/*# sourceMappingURL=main.css.map */
