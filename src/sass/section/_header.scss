@@ -19,16 +19,34 @@
 
 
 color: #DC56C5;
-padding-top: 40px;
+padding-top: 80px;
 margin-bottom: 65px;
 text-align: center;
 margin: auto;
 font-family: Montserrat;
-font-size: 50px;
+font-size: 18px;
 font-style: normal;
 font-weight: 900;
 line-height: normal;
+width: 212.0px;
+height: 44.0px;
 
+
+
+     @media screen and (min-width:786px) {
+        font-size: 30px;
+        width: 353.0px;
+        padding-top: 40px;
+height: 74.0px;
+
+      }
+
+           @media screen and (min-width:1280px) {
+        font-size: 50px;
+        width: 589.0px;
+height: 122.0px;
+
+      }
 
     }
 
@@ -41,14 +59,46 @@ line-height: normal;
     display: block;
     max-width: 100%;
     height: auto;
+    
+    }
+
+    &__image {
+        width: 110.0px;
+
+
+           @media screen and (min-width:786px) {
+width: 180px;
+
+
+
+      }
+
+                 @media screen and (min-width:1280px) {
+width: 240px;
+
+
+
+      }
+
     }
 
     &__form {
         padding-bottom: 200px;
         margin-top: 65px;
+display: flex;
+flex-direction: column;
+gap: 20px;
+        justify-content: center;
+
+
+             @media screen and (min-width:786px) {
+        padding-bottom: 200px;
+        margin-top: 65px;
         display: flex;
         justify-content: center;
+        flex-direction: row;
         gap: 30px;
+      }
     }
 
 &__input {
@@ -80,6 +130,13 @@ line-height: normal;
 
     &__icon {
           position: relative;
+          width: 270px;
+          margin: auto;
+
+           @media screen and (min-width:786px) {
+ margin: 0%;
+      }
+          
 }
 
     &__icons {
