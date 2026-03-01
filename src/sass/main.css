@@ -54,6 +54,16 @@ body {
   text-align: center;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
 .container {
   max-width: 1080px;
   margin-right: auto;
@@ -282,7 +292,7 @@ body {
   border-radius: 50px;
   box-shadow: inset 0 0 1 4px #fff;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  z-index: 1000;
+  z-index: 100;
 }
 
 @media (min-width: 768px) {
@@ -342,8 +352,10 @@ body {
   backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
-  align-items: center;
-  transition: 0.3s;
+  align-items: flex-start;
+  z-index: 110;
+  overflow-y: auto;
+  padding: 40px 0;
 }
 
 .backdrop-hidden {
@@ -354,11 +366,11 @@ body {
 
 .modal {
   width: 1034px;
-  max-height: 750px;
-  overflow: auto;
+  min-height: 500px;
+  height: auto;
   background: #fff2fd;
-  border-radius: 350px 0 350px 0;
-  padding: 60px;
+  border-radius: 300px 0;
+  padding: 62px 30px;
   position: relative;
 }
 
@@ -371,6 +383,12 @@ body {
   background: none;
   color: #4c00ff;
   cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.modal-close-btn:hover {
+  transform: rotate(90deg);
+  color: #dc56c5;
 }
 
 .modal__wrap {
@@ -378,18 +396,18 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 80px 24px 100px;
-  display: flex;
+}
+
+.price__icon {
+  width: 24px;
+  height: 24px;
+  fill: #dc56c5;
+  flex-shrink: 0;
 }
 
 .modal__preview {
   width: 130px;
-  height: 130px;
+  height: 132px;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -405,7 +423,6 @@ body {
   height: 640px;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 50px 0;
 }
 
 .content__list {
@@ -419,11 +436,15 @@ body {
   color: #dc56c5;
   font-size: 24px;
   font-weight: 600;
+  display: flex;
+  margin-bottom: 7px;
 }
 
 .modal__text {
   font-size: 18px;
   color: #111;
+  display: flex;
+  word-break: break-word;
 }
 
 .price__wrap {
@@ -433,13 +454,18 @@ body {
 }
 
 .modal__btn {
-  display: inline-block;
+  width: 150px;
   margin-top: 10px;
-  padding: 10px 25px;
-  background: #4c00ff;
+  display: flex;
   color: #fff;
+  cursor: pointer;
+  padding: 9px 19px 11px;
+  background: #4c00ff;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   border-radius: 6px;
+  margin-bottom: 20px;
   transition: 0.3s;
 }
 
@@ -453,4 +479,11 @@ body {
   background: transparent;
   color: #4c00ff;
   border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn-info:hover {
+  transform: scale(1.05);
+  background-color: #4c00ff;
+  color: white;
 }/*# sourceMappingURL=main.css.map */
