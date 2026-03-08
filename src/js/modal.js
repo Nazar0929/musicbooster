@@ -127,7 +127,7 @@ function createModalMarkup(ev) {
           <p class="modal__text">${ev.name || ""}</p>
         </li>
 
-        <li>
+        <li class="modal__pric">
           <h2 class="modal__title">PRICES</h2>
 
           <div class="price__wrap">
