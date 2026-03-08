@@ -20,6 +20,24 @@
 }
 
 .modal {
+width: 100%;
+min-height: 500px; 
+  height: auto;
+
+  background: #fff2fd;
+  border-radius: 100px 0;
+  padding: 62px 30px;
+  position: relative;
+
+
+    @media screen and (min-width:786px) {
+      width: 595.0px;
+  border-radius: 300px 0;
+
+      }
+
+
+          @media screen and (min-width:1280px) {
 width: 1034px;
 min-height: 500px; 
   height: auto;
@@ -28,6 +46,7 @@ min-height: 500px;
   border-radius: 300px 0;
   padding: 62px 30px;
   position: relative;
+      }
 }
 
 .modal-close-btn {
@@ -54,6 +73,7 @@ min-height: 500px;
   align-items: center;
   gap: 40px;
 
+
 }
 
 .price__icon {
@@ -68,26 +88,88 @@ min-height: 500px;
   height: 132px;
   border-radius: 50%;
   object-fit: cover;
+
+
+  
+    @media screen and (min-width:786px) {
+
+  width: 72px;
+  height: 72px;
+      }
+
+
+          @media screen and (min-width:1280px) {
+
+  width: 130px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+      }
 }
 
 .content {
   display: flex;
   gap: 40px;
+
+        @media screen and (min-width:786px) {
+
+  gap: 30px;
+
+      }
+
+            @media screen and (min-width:1280px) {
+                gap: 40px;
+   }
 }
 
 .content__image {
+display: none;
+  object-fit: cover;
+  // border-radius: 50px 0;
+
+
+    
+    @media screen and (min-width:786px) {
+display: flex;
+width: 233.0px;
+height: 416.0px;
+
+      }
+
+
+        
+    @media screen and (min-width:1280px) {
   width: 420px;
   height: 640px;
   object-fit: cover;
   // border-radius: 50px 0;
+
+
+      }
   
 }
 
 .content__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+      @media screen and (min-width:786px) {
+
+width: 265.0px;
+
+
+      }
+
+          @media screen and (min-width:1280px) {
   width: 420px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+
+      }
 }
 
 .modal__title {
@@ -96,6 +178,13 @@ min-height: 500px;
   font-weight: 600;
   display: flex;
   margin-bottom: 7px;
+  justify-content: center;
+
+            @media screen and (min-width:768px) {
+justify-content: flex-start;
+
+      }
+
 }
 
 .modal__text {
@@ -103,7 +192,55 @@ min-height: 500px;
   color: #111;
   display: flex;
   word-break: break-word;
+  justify-content: center;
+              @media screen and (min-width:768px) {
+justify-content: flex-start;
+
+      }
 }
+
+.modal__pric {
+  margin: auto;
+
+                @media screen and (min-width:768px) {
+margin: 0%;
+
+      }
+}
+
+
+.modal__wrap {
+  margin: auto;
+
+                  @media screen and (min-width:768px) {
+margin: 0%;
+
+      }
+}
+
+
+.modal__btn {
+  margin: auto;
+
+                  @media screen and (min-width:768px) {
+margin: 0%;
+
+      }
+}
+
+.price__wrap {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+
+                  @media screen and (min-width:768px) {
+justify-content: flex-start;
+
+      }
+}
+
 
 .price__wrap {
   display: flex;

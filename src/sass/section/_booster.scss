@@ -29,16 +29,21 @@
 
 
 
+
+
+
 .event-card {
     // position: relative;
-  // background-image: url(../../img/backk.png);
+  background-image: url(../../img/backk.png);
   border-radius: 20px;
     background-repeat: no-repeat;
     width: 138.0px;
 margin-right: auto;
 margin-left: auto;
 
-background-position: 100% 50%;
+
+
+background-position: 96% 4%;
   transition: transform 0.35s ease, background-position 0.35s ease;
 
 
@@ -51,17 +56,18 @@ width: 196.0px;
       }
 }
 
-.event-card::after {
-    // background-image: url(../../img/backk.png);
-  content: "";
-  position: absolute;
-  top: 50px;
-  z-index: 10;
-  border: 1px solid rgba(220, 86, 197, .3);
-  box-sizing: border-box;
-  border-radius: 50px 0;
-  pointer-events: none;
-}
+// .event-card::after {
+//     background-image: url(../../img/backk.png);
+//   content: "";
+//   position: absolute;
+//   top: 50px;
+//   z-index: 10;
+//   border: 1px solid rgba(220, 86, 197, .3);
+//   box-sizing: border-box;
+//   border-radius: 50px 0;
+  
+//   pointer-events: none;
+// }
 
 // .event-card:hover {
 //   transform: translateY(-8px);
@@ -75,7 +81,7 @@ width: 196.0px;
 
 .event-img {
 width: 100%;
-margin: auto;
+
 height: 227.0px;
 border-radius: 50px 0;
 background: url(<path-to-image>) lightgray 50% / cover no-repeat;
@@ -83,19 +89,21 @@ background: url(<path-to-image>) lightgray 50% / cover no-repeat;
   object-fit: cover;
 
                @media screen and (min-width:768px) {
-width: 195.0px;
+width: 180.0px;
+margin-top: 25px;
       }
 }
 
 
 .event-title {
-  color: #fff;
+
+    color: #DC56C5;
   font-size: 16px;
   margin: 10px;
 }
 
 .event-date {
-  color: #ff3d9a;
+  color: #fff;
   margin: 0 10px 5px;
 }
 
