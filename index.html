@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/musicbooster/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Event-Boster</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
@@ -17,53 +17,61 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
     <script type="module" crossorigin src="/musicbooster/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/musicbooster/assets/index-b757e68e.css">
+    <link rel="stylesheet" href="/musicbooster/assets/index-eb8b1893.css">
   </head>
   <body>
+
+
+     <div class="preloader">
+  <svg class="progress-ring" width="200" height="200">
+    <circle class="progress-ring__circle" stroke="#DC56C5" stroke-width="10" fill="transparent" r="90" cx="100" cy="100"/>
+  </svg>
+  <div class="preloader__logo">
+    <img  src="https://play-lh.googleusercontent.com/6D306YTJ7Xta4PTbMotoWOa0_AoYy6IHVgVk-F4iWPKYq9ha3Wvcvq9X8tgbhJKEA_E" alt="Event Booster">
+  </div>
+</div>
+
    
     <!-- Loads the specified .html file -->
 
     <header class="header" id="top">
-
     <div class="container">
         <a href="./header.html" class="header__link"><img src="/musicbooster/assets/logo-4258f148.png" alt="" class="header__image"></a>
-<h1 class="header__title">
-<b>
-F<span>IN</span>D 
-<span>BE</span>ST 
-<span>EV</span>EN<span>TS</span> 
-<span>AR</span>OU<span>ND</span> 
-THE 
-<span>WO</span>R<span>LD</span>
-</b>
-</h1>
+        <h1 class="header__title">
+            <b>
+                F<span>IN</span>D
+                <span>BE</span>ST
+                <span>EV</span>EN<span>TS</span>
+                <span>AR</span>OU<span>ND</span>
+                THE
+                <span>WO</span>R<span>LD</span>
+            </b>
+        </h1>
+        
 
-<form action="" class="header__form">
-    <div class="header__icon">
-        <input type="text" class="header__input" placeholder="Start searching">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAOFJREFUeAGVUdsRgjAQzGXgHzugA+xAStAK1E8+QKkArAACBWgLVqB2khIoAAb3GM5xHPGxM5DL5e52syE1oiiK0HGcHUJvTDV935+TJDmpJxD/6rrOsMzats3TNG3ksKqqDRGtkV898pi8REOpJoCz0BiTy16zDEyYbIjj+Kq1DjB4kKpZK+is+gDc5YbBc2nw1B8YGL4WQRJk2yFmOrixnyqGdh81vsjW8LmEdQu28F2x67oXhAfJkQSjtQE/Vtd1DQo59pEz+DJI2jILvUz0xA2sNooiK0zYH7mJ1I+Qpjs3Ims2rmdMqgAAAABJRU5ErkJggg==" alt="" class="header__icons">
-    </div>
-    <div class="header__icon">
-        <input type="text" class="header__input" placeholder="Choose country">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAICAYAAAAiJnXPAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAJVJREFUeAGNj10RwyAQhLmAgEqIhTpoJVRBpwKY9iRUAZ3BQCXEQeIgkRAhMGTJhIeQ331gF+a+446stT8hxFuc15fiCfAPe54AKq31o4jJOfeBdQdAh7pXDJRejDGllLImojKvDiH03vs7M/czKIFKqRbxsgUsoCjsd4PV6Y6RrgBmoxc5hEUbdOexIxHnwK6mH1c1AGwXOqEA65WhAAAAAElFTkSuQmCC" alt="" class="header__icons">
-       
-    </div>
-</form>
+        <form action="" class="header__form">
+            <div class="header__icon">
+                <input type="text" class="header__input" placeholder="Start searching">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAOFJREFUeAGVUdsRgjAQzGXgHzugA+xAStAK1E8+QKkArAACBWgLVqB2khIoAAb3GM5xHPGxM5DL5e52syE1oiiK0HGcHUJvTDV935+TJDmpJxD/6rrOsMzats3TNG3ksKqqDRGtkV898pi8REOpJoCz0BiTy16zDEyYbIjj+Kq1DjB4kKpZK+is+gDc5YbBc2nw1B8YGL4WQRJk2yFmOrixnyqGdh81vsjW8LmEdQu28F2x67oXhAfJkQSjtQE/Vtd1DQo59pEz+DJI2jILvUz0xA2sNooiK0zYH7mJ1I+Qpjs3Ims2rmdMqgAAAABJRU5ErkJggg==" alt="" class="header__icons">
+            </div>
+            <div class="header__icon">
+                <input type="text" class="header__input" placeholder="Choose country">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAICAYAAAAiJnXPAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAJVJREFUeAGNj10RwyAQhLmAgEqIhTpoJVRBpwKY9iRUAZ3BQCXEQeIgkRAhMGTJhIeQ331gF+a+446stT8hxFuc15fiCfAPe54AKq31o4jJOfeBdQdAh7pXDJRejDGllLImojKvDiH03vs7M/czKIFKqRbxsgUsoCjsd4PV6Y6RrgBmoxc5hEUbdOexIxHnwK6mH1c1AGwXOqEA65WhAAAAAElFTkSuQmCC" alt="" class="header__icons">
+
+            </div>
+        </form>
     </div>
 </header>
     <section class="booster">
     <div class="container">
-
 <ul class="events-list" data-id="${ev.id}"></ul>
 <!-- <div class="event__back"><img src="../img/backk.png" alt=""></div> -->
 <div class="pagination" id="pagination"></div>
-
     </div>
 </section>
     <footer class="footer">
     <div class="container">
-        <p class="footer__text">© 2021 | All Rights Reserved | <span>Developed with<a class="footer__link"><span
-                        class="footer__heart">❤</span>by GoIT Students</a></span></p>
+        <p class="footer__text">© 2021 | All Rights Reserved | <span>Developed with<a class="footer__link footer-open-modal" ><span class="footer__heart ">❤</span>by GoIT Students</a></span></p>
     </div>
 </footer>
 
@@ -87,6 +95,56 @@ THE
 
 
 
+    <div class="modals is-hidden" id="modal">
+    <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="team-card">
+            <img src="/musicbooster/assets/nazar-b406817a.jpg" class="background">
+            <div class="image-wrapper">
+                <img src="/musicbooster/assets/nazar-b406817a.jpg" alt="Sergey" class="profile">
+            </div>
+            <div class="info">
+                <h3>Nazar Balitsky</h3>
+                <p class="role">Team-Lead</p>
+                <div class="icons">
+                    <a href="#"><i class="ion-social-linkedin-outline"></i></a>
+                    <a href="#"><i class="ion-social-github-outline"></i></a>
+                    <a href="#"><i class="ion-social-instagram-outline"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="team-card">
+            <img src="/musicbooster/assets/taras-5788783a.jpg" class="background">
+            <div class="image-wrapper">
+                <img src="/musicbooster/assets/taras-5788783a.jpg" alt="Sergey" class="profile">
+            </div>
+            <div class="info">
+                <h3>Taras Simkov</h3>
+                <p class="role">Product-Owner</p>
+                <div class="icons">
+                    <a href="#"><i class="ion-social-linkedin-outline"></i></a>
+                    <a href="#"><i class="ion-social-github-outline"></i></a>
+                    <a href="#"><i class="ion-social-instagram-outline"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="team-card">
+            <img src="/musicbooster/assets/ivan-b9466b3e.jpg" class="background">
+            <div class="image-wrapper">
+                <img src="/musicbooster/assets/ivan-b9466b3e.jpg" alt="Sergey" class="profile">
+            </div>
+            <div class="info">
+                <h3>Ivan Demchenko</h3>
+                <p class="role">Scrum-Master</p>
+                <div class="icons">
+                    <a href="#"><i class="ion-social-linkedin-outline"></i></a>
+                    <a href="#"><i class="ion-social-github-outline"></i></a>
+                    <a href="#"><i class="ion-social-instagram-outline"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     
   </body>
 </html>

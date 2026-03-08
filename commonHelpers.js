@@ -1,6 +1,6 @@
-(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const c of o.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&s(c)}).observe(document,{childList:!0,subtree:!0});function a(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(e){if(e.ep)return;e.ep=!0;const o=a(e);fetch(e.href,o)}})();const N="Q8bHL81HES4CjxatVZAVSQWYyAffYhbQ",I=document.querySelector(".events-list"),g=document.getElementById("pagination"),w=document.querySelector("[data-modal]"),W=document.querySelector(".modal__wrap"),q=document.querySelector("[data-close]"),O=document.body;let b=0,v=0;async function E(t=0){var o,c;const n=`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${N}&countryCode=US&size=20&page=${t}`,s=await(await fetch(n)).json(),e=((o=s._embedded)==null?void 0:o.events)||[];v=Math.min(((c=s.page)==null?void 0:c.totalPages)||0,29),b=t,Y(e),U()}function Y(t){const n=t.map(a=>{var i,d,l,r,m,p,u;const s=((d=(i=a.images)==null?void 0:i[0])==null?void 0:d.url)||"",e=a.name||"",o=((r=(l=a.dates)==null?void 0:l.start)==null?void 0:r.localDate)||"",c=((u=(p=(m=a._embedded)==null?void 0:m.venues)==null?void 0:p[0])==null?void 0:u.name)||"";return`
+(function(){const a=document.createElement("link").relList;if(a&&a.supports&&a.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const c of o.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&s(c)}).observe(document,{childList:!0,subtree:!0});function n(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(e){if(e.ep)return;e.ep=!0;const o=n(e);fetch(e.href,o)}})();window.addEventListener("load",()=>{const t=document.querySelector(".preloader"),a=document.getElementById("content"),n=document.querySelector(".progress-ring__circle"),s=n.r.baseVal.value,e=2*Math.PI*s;n.style.strokeDasharray=`${e} ${e}`,n.style.strokeDashoffset=e;let o=0;const c=setInterval(()=>{o+=1;const l=e-o/100*e;n.style.strokeDashoffset=l,o>=100&&(clearInterval(c),t.style.transition="opacity 1s ease",t.style.opacity="0",setTimeout(()=>{t.style.display="none",a.style.display="block",document.body.style.overflow="auto"},1e3))},15)});const N="Q8bHL81HES4CjxatVZAVSQWYyAffYhbQ",q=document.querySelector(".events-list"),y=document.getElementById("pagination"),M=document.querySelector("[data-modal]"),W=document.querySelector(".modal__wrap"),Y=document.querySelector("[data-close]"),O=document.body;let $=0,g=0;async function E(t=0){var o,c;const a=`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${N}&countryCode=US&size=20&page=${t}`,s=await(await fetch(a)).json(),e=((o=s._embedded)==null?void 0:o.events)||[];g=Math.min(((c=s.page)==null?void 0:c.totalPages)||0,29),$=t,D(e),U()}function D(t){const a=t.map(n=>{var l,d,i,r,m,p,u;const s=((d=(l=n.images)==null?void 0:l[0])==null?void 0:d.url)||"",e=n.name||"",o=((r=(i=n.dates)==null?void 0:i.start)==null?void 0:r.localDate)||"",c=((u=(p=(m=n._embedded)==null?void 0:m.venues)==null?void 0:p[0])==null?void 0:u.name)||"";return`
 
-      <li class="event-card" data-id="${a.id}">
+      <li class="event-card" data-id="${n.id}">
 
         <img class="event-img" src="${s}" alt="${e}">
         <h3 class="event-title">${e}</h3>
@@ -23,19 +23,19 @@
 ${c}
 </p>
       </li>
-    `}).join("");I.innerHTML=n}function U(){g.innerHTML="";const t=5;let n=Math.max(0,b-2),a=Math.min(v,n+t);a-n<t&&(n=Math.max(0,a-t));for(let s=n;s<a;s++){const e=document.createElement("button");e.className="page-btn",e.textContent=s+1,s===b&&e.classList.add("active"),e.addEventListener("click",()=>E(s)),g.appendChild(e)}if(a<v){const s=document.createElement("span");s.textContent="...",s.className="dots",g.appendChild(s);const e=document.createElement("button");e.className="page-btn",e.textContent=v,e.addEventListener("click",()=>E(v-1)),g.appendChild(e)}}I.addEventListener("click",V);async function V(t){const n=t.target.closest(".event-card");if(!n)return;const a=n.dataset.id,e=await(await fetch(`https://app.ticketmaster.com/discovery/v2/events/${a}.json?apikey=${N}`)).json();W.innerHTML=K(e),w.classList.remove("backdrop-hidden"),O.classList.add("no-scroll")}function K(t){var l,r,m,p,u,h,f,H,k,S,z,P,T;const n=((r=(l=t.images)==null?void 0:l[0])==null?void 0:r.url)||"",a=t.name||"",s=t.info||"No information",e=((p=(m=t.dates)==null?void 0:m.start)==null?void 0:p.localDate)||"",o=((h=(u=t.dates)==null?void 0:u.start)==null?void 0:h.localTime)||"",c=((S=(k=(H=(f=t._embedded)==null?void 0:f.venues)==null?void 0:H[0])==null?void 0:k.city)==null?void 0:S.name)||"",i=((T=(P=(z=t._embedded)==null?void 0:z.venues)==null?void 0:P[0])==null?void 0:T.name)||"",d=t.url||"#";return`
-    <img class="modal__preview" src="${n}" />
+    `}).join("");q.innerHTML=a}function U(){y.innerHTML="";const t=5;let a=Math.max(0,$-2),n=Math.min(g,a+t);n-a<t&&(a=Math.max(0,n-t));for(let s=a;s<n;s++){const e=document.createElement("button");e.className="page-btn",e.textContent=s+1,s===$&&e.classList.add("active"),e.addEventListener("click",()=>E(s)),y.appendChild(e)}if(n<g){const s=document.createElement("span");s.textContent="...",s.className="dots",y.appendChild(s);const e=document.createElement("button");e.className="page-btn",e.textContent=g,e.addEventListener("click",()=>E(g-1)),y.appendChild(e)}}q.addEventListener("click",V);async function V(t){const a=t.target.closest(".event-card");if(!a)return;const n=a.dataset.id,e=await(await fetch(`https://app.ticketmaster.com/discovery/v2/events/${n}.json?apikey=${N}`)).json();W.innerHTML=K(e),M.classList.remove("backdrop-hidden"),O.classList.add("no-scroll")}function K(t){var i,r,m,p,u,f,h,H,S,T,I,P,z;const a=((r=(i=t.images)==null?void 0:i[0])==null?void 0:r.url)||"",n=t.name||"",s=t.info||"No information",e=((p=(m=t.dates)==null?void 0:m.start)==null?void 0:p.localDate)||"",o=((f=(u=t.dates)==null?void 0:u.start)==null?void 0:f.localTime)||"",c=((T=(S=(H=(h=t._embedded)==null?void 0:h.venues)==null?void 0:H[0])==null?void 0:S.city)==null?void 0:T.name)||"",l=((z=(P=(I=t._embedded)==null?void 0:I.venues)==null?void 0:P[0])==null?void 0:z.name)||"",d=t.url||"#";return`
+    <img class="modal__preview" src="${a}" />
 
     <div class="content">
 
-      <img class="content__image" src="${n}" />
+      <img class="content__image" src="${a}" />
 
       <ul>
 
         <li><b>INFO:</b> ${s}</li>
         <li><b>WHEN:</b> ${e} ${o}</li>
-        <li><b>WHERE:</b> ${c} — ${i}</li>
-        <li><b>WHO:</b> ${a}</li>
+        <li><b>WHERE:</b> ${c} — ${l}</li>
+        <li><b>WHO:</b> ${n}</li>
 
         <li>
           <a class="modal__btn" href="${d}" target="_blank">
@@ -46,15 +46,15 @@ ${c}
       </ul>
 
     </div>
-  `}q.addEventListener("click",M);w.addEventListener("click",t=>{t.target.closest(".modal")||M()});document.addEventListener("keydown",t=>{t.code==="Escape"&&M()});function M(){w.classList.add("backdrop-hidden"),O.classList.remove("no-scroll")}E();const j="Q8bHL81HES4CjxatVZAVSQWYyAffYhbQ",A=document.querySelector(".events-list"),$=document.getElementById("pagination"),C=document.querySelector("[data-modal]"),Q=document.querySelector(".modal__wrap"),R=document.querySelector("[data-close]"),B=document.body;let y=0,_=0;async function L(t=0){var o,c;const n=`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${j}&countryCode=US&size=20&page=${t}`,s=await(await fetch(n)).json(),e=((o=s._embedded)==null?void 0:o.events)||[];_=Math.min(((c=s.page)==null?void 0:c.totalPages)||0,29),y=t,D(e),F()}function D(t){const n=t.map(a=>{var s,e,o,c,i,d,l;return`
-    <li class="event-card" data-id="${a.id}">
-      <img class="event-img" src="${((e=(s=a.images)==null?void 0:s[0])==null?void 0:e.url)||""}" alt="${a.name}">
-      <h3 class="event-title">${a.name}</h3>
-      <p class="event-date">${((c=(o=a.dates)==null?void 0:o.start)==null?void 0:c.localDate)||""}</p>
-      <p class="event-place">${((l=(d=(i=a._embedded)==null?void 0:i.venues)==null?void 0:d[0])==null?void 0:l.name)||""}</p>
+  `}Y.addEventListener("click",k);M.addEventListener("click",t=>{t.target.closest(".modal")||k()});document.addEventListener("keydown",t=>{t.code==="Escape"&&k()});function k(){M.classList.add("backdrop-hidden"),O.classList.remove("no-scroll")}E();const j="Q8bHL81HES4CjxatVZAVSQWYyAffYhbQ",B=document.querySelector(".events-list"),b=document.getElementById("pagination"),C=document.querySelector("[data-modal]"),Q=document.querySelector(".modal__wrap"),R=document.querySelector("[data-close]"),A=document.body;let L=0,_=0;async function w(t=0){var o,c;const a=`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${j}&countryCode=US&size=20&page=${t}`,s=await(await fetch(a)).json(),e=((o=s._embedded)==null?void 0:o.events)||[];_=Math.min(((c=s.page)==null?void 0:c.totalPages)||0,29),L=t,F(e),Z()}function F(t){const a=t.map(n=>{var s,e,o,c,l,d,i;return`
+    <li class="event-card" data-id="${n.id}">
+      <img class="event-img" src="${((e=(s=n.images)==null?void 0:s[0])==null?void 0:e.url)||""}" alt="${n.name}">
+      <h3 class="event-title">${n.name}</h3>
+      <p class="event-date">${((c=(o=n.dates)==null?void 0:o.start)==null?void 0:c.localDate)||""}</p>
+      <p class="event-place">${((i=(d=(l=n._embedded)==null?void 0:l.venues)==null?void 0:d[0])==null?void 0:i.name)||""}</p>
     </li>
-  `}).join("");A.innerHTML=n}function F(){$.innerHTML="";const t=5;let n=Math.max(0,y-2),a=Math.min(_,n+t);a-n<t&&(n=Math.max(0,a-t));for(let s=n;s<a;s++){const e=document.createElement("button");e.className="page-btn",e.textContent=s+1,s===y&&e.classList.add("active"),e.addEventListener("click",()=>L(s)),$.appendChild(e)}if(a<_){const s=document.createElement("span");s.textContent="...",s.className="dots",$.appendChild(s);const e=document.createElement("button");e.className="page-btn",e.textContent=_,e.addEventListener("click",()=>L(_-1)),$.appendChild(e)}}A.addEventListener("click",async t=>{const n=t.target.closest(".event-card");if(!n)return;const a=n.dataset.id,e=await(await fetch(`https://app.ticketmaster.com/discovery/v2/events/${a}.json?apikey=${j}`)).json();Q.innerHTML=Z(e),C.classList.remove("backdrop-hidden"),B.classList.add("no-scroll")});R.addEventListener("click",x);C.addEventListener("click",t=>{t.target.closest(".modal")||x()});document.addEventListener("keydown",t=>{t.code==="Escape"&&x()});function x(){C.classList.add("backdrop-hidden"),B.classList.remove("no-scroll")}function Z(t){var n,a,s,e,o,c,i,d,l,r,m,p,u,h,f;return`
-    <img class="modal__preview" src="${((a=(n=t.images)==null?void 0:n[0])==null?void 0:a.url)||""}" />
+  `}).join("");B.innerHTML=a}function Z(){b.innerHTML="";const t=5;let a=Math.max(0,L-2),n=Math.min(_,a+t);n-a<t&&(a=Math.max(0,n-t));for(let s=a;s<n;s++){const e=document.createElement("button");e.className="page-btn",e.textContent=s+1,s===L&&e.classList.add("active"),e.addEventListener("click",()=>w(s)),b.appendChild(e)}if(n<_){const s=document.createElement("span");s.textContent="...",s.className="dots",b.appendChild(s);const e=document.createElement("button");e.className="page-btn",e.textContent=_,e.addEventListener("click",()=>w(_-1)),b.appendChild(e)}}B.addEventListener("click",async t=>{const a=t.target.closest(".event-card");if(!a)return;const n=a.dataset.id,e=await(await fetch(`https://app.ticketmaster.com/discovery/v2/events/${n}.json?apikey=${j}`)).json();Q.innerHTML=G(e),C.classList.remove("backdrop-hidden"),A.classList.add("no-scroll")});R.addEventListener("click",x);C.addEventListener("click",t=>{t.target.closest(".modal")||x()});document.addEventListener("keydown",t=>{t.code==="Escape"&&x()});function x(){C.classList.add("backdrop-hidden"),A.classList.remove("no-scroll")}function G(t){var a,n,s,e,o,c,l,d,i,r,m,p,u,f,h;return`
+    <img class="modal__preview" src="${((n=(a=t.images)==null?void 0:a[0])==null?void 0:n.url)||""}" />
 
     <div class="content">
       <img class="content__image" src="${((e=(s=t.images)==null?void 0:s[0])==null?void 0:e.url)||""}" />
@@ -69,13 +69,13 @@ ${c}
         <li>
           <h2 class="modal__title">WHEN</h2>
           <p class="modal__text">${((c=(o=t.dates)==null?void 0:o.start)==null?void 0:c.localDate)||""}</p>
-          <p class="modal__text">${((d=(i=t.dates)==null?void 0:i.start)==null?void 0:d.localTime)||""}</p>
+          <p class="modal__text">${((d=(l=t.dates)==null?void 0:l.start)==null?void 0:d.localTime)||""}</p>
         </li>
 
         <li>
           <h2 class="modal__title">WHERE</h2>
-          <p class="modal__text">${((p=(m=(r=(l=t._embedded)==null?void 0:l.venues)==null?void 0:r[0])==null?void 0:m.city)==null?void 0:p.name)||""}</p>
-          <p class="modal__text">${((f=(h=(u=t._embedded)==null?void 0:u.venues)==null?void 0:h[0])==null?void 0:f.name)||""}</p>
+          <p class="modal__text">${((p=(m=(r=(i=t._embedded)==null?void 0:i.venues)==null?void 0:r[0])==null?void 0:m.city)==null?void 0:p.name)||""}</p>
+          <p class="modal__text">${((h=(f=(u=t._embedded)==null?void 0:u.venues)==null?void 0:f[0])==null?void 0:h.name)||""}</p>
         </li>
 
         <li>
@@ -113,5 +113,5 @@ ${c}
     <a class="btn-info" href="${t.url||"#"}" target="_blank">
       MORE FROM THIS AUTHOR
     </a>
-  `}L();
+  `}w();const J=document.querySelector(".footer-open-modal"),v=document.querySelector("#modal"),X=v.querySelector(".close");J.addEventListener("click",t=>{t.preventDefault(),v.classList.add("is-open"),document.body.style.overflow="hidden"});X.addEventListener("click",()=>{v.classList.remove("is-open"),document.body.style.overflow="visible"});v.addEventListener("click",t=>{t.target===v&&(v.classList.remove("is-open"),document.body.style.overflow="visible")});
 //# sourceMappingURL=commonHelpers.js.map
