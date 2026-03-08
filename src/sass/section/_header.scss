@@ -1,125 +1,106 @@
-
-
-
 .header {
-            background-image: url(../img/pic.png);
+  background-image: url(../img/pic.png);
 
-    background-color: rgb(0, 0, 0);
-        background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-color: rgb(0, 0, 0);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  overflow: hidden;
+
+  &__title {
+    width: 589px;
+    height: 162px;
+
+    color: #fee;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0dbf, 0 0 0.5em #ff0dbf,
+      0 0 0.1em #ff0dbf, 0 10px 3px #000;
+
+    padding-top: 80px;
+    margin-bottom: 65px;
     text-align: center;
-    overflow: hidden;
+    margin: auto;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    width: 212px;
+    height: 44px;
 
-    &__title {
-        width: 589.0px;
-        height: 162.0px;
-
-color: #fee;
-    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0dbf, 0 0 .5em #ff0dbf, 0 0 .1em #ff0dbf, 0 10px 3px #000;
-
-
-
-padding-top: 80px;
-margin-bottom: 65px;
-text-align: center;
-margin: auto;
-font-family: Montserrat;
-font-size: 18px;
-font-style: normal;
-font-weight: 900;
-line-height: normal;
-width: 212.0px;
-height: 44.0px;
-
-
-
-     @media screen and (min-width:786px) {
-        font-size: 30px;
-        width: 353.0px;
-        padding-top: 40px;
-height: 74.0px;
-
-      }
-
-           @media screen and (min-width:1280px) {
-        font-size: 50px;
-        width: 589.0px;
-height: 122.0px;
-
-      }
-
+    @media screen and (min-width: 786px) {
+      font-size: 30px;
+      width: 353px;
+      padding-top: 40px;
+      height: 74px;
     }
 
-.header__title span {
-  animation: blink 1s infinite alternate;
-}
-
-.header__title span:nth-of-type(2) {
-  animation: blink 1s linear infinite;
-}
-
-    @keyframes blink {
-  0%,100% {
-    opacity: 1;
+    @media screen and (min-width: 1280px) {
+      font-size: 50px;
+      width: 589px;
+      height: 122px;
+    }
   }
-  50% {
-    opacity: 0.2;
+
+  .header__title span {
+    animation: blink 1s infinite alternate;
   }
-}
 
+  .header__title span:nth-of-type(2) {
+    animation: blink 1s linear infinite;
+  }
 
-    &__link {
-            position: absolute;
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+  }
+
+  &__link {
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
     display: block;
     max-width: 100%;
     height: auto;
-    
+  }
+
+  &__image {
+    width: 110px;
+
+    @media screen and (min-width: 786px) {
+      width: 180px;
     }
 
-    &__image {
-        width: 110.0px;
-
-
-           @media screen and (min-width:786px) {
-width: 180px;
-
-
-
-      }
-
-                 @media screen and (min-width:1280px) {
-width: 240px;
-
-
-
-      }
-
+    @media screen and (min-width: 1280px) {
+      width: 240px;
     }
+  }
 
-    &__form {
-        padding-bottom: 200px;
-        margin-top: 65px;
-display: flex;
-flex-direction: column;
-gap: 20px;
-        justify-content: center;
+  &__form {
+    padding-bottom: 200px;
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
 
-
-             @media screen and (min-width:786px) {
-        padding-bottom: 200px;
-        margin-top: 90px;
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        gap: 30px;
-      }
+    @media screen and (min-width: 786px) {
+      padding-bottom: 200px;
+      margin-top: 90px;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      gap: 30px;
     }
+  }
 
-&__input {
+  &__input {
     width: 270px;
     height: 40px;
     padding-left: 30px;
@@ -135,39 +116,36 @@ gap: 20px;
     color: #fff;
     outline: none;
     transition: 0.3s;
-}
+  }
 
-&__input::placeholder {
+  &__input::placeholder {
     color: rgba(255, 255, 255, 0.6);
-}
+  }
 
-&__input:focus {
+  &__input:focus {
     border: 1px solid rgba(255, 255, 255, 0.4);
     background: rgba(255, 255, 255, 0.15);
-}
+  }
 
-    &__icon {
-          position: relative;
-          width: 270px;
-          margin: auto;
+  &__icon {
+    position: relative;
+    width: 270px;
+    margin: auto;
 
-           @media screen and (min-width:786px) {
- margin: 0%;
-      }
-          
-}
-
-    &__icons {
-        position: absolute;
-        top: 14.5px;
-        right: 30px;
+    @media screen and (min-width: 786px) {
+      margin: 0%;
     }
+  }
 
-        &__iconss {
-        position: absolute;
-        top: 17px;
-        right: 30px;
-    }
+  &__icons {
+    position: absolute;
+    top: 14.5px;
+    right: 30px;
+  }
 
+  &__iconss {
+    position: absolute;
+    top: 17px;
+    right: 30px;
+  }
 }
-

@@ -293,9 +293,18 @@ body.no-scroll {
   list-style: none;
   padding-bottom: 20px;
   margin: 0;
-  perspective: 15000px;
 }
 @media screen and (min-width: 786px) {
+  .events-list {
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    gap: 40px;
+    padding: 30px;
+    list-style: none;
+    perspective: 15000px;
+  }
+}
+@media screen and (min-width: 786px) and (min-width: 786px) {
   .events-list {
     grid-template-columns: repeat(3, 1fr);
     display: grid;
@@ -305,15 +314,52 @@ body.no-scroll {
     margin: 0;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 786px) and (min-width: 1280px) {
   .events-list {
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     padding: 0px 40px 40px 40px;
   }
 }
+.events-list {
+  margin: 0;
+}
 
 .event-card {
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  width: 138px;
+  margin-right: auto;
+  margin-left: auto;
+  background-position: 100% 50%;
+  transition: transform 0.35s ease, background-position 0.35s ease;
+}
+@media screen and (min-width: 768px) {
+  .event-card {
+    width: 196px;
+  }
+}
+
+.event-card::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  z-index: 10;
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  box-sizing: border-box;
+  border-radius: 50px 0;
+  pointer-events: none;
+}
+
+.event-card:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.event-card:hover .event-img {
+  box-shadow: 20px -16px 34px -15px rgba(220, 86, 197, 0.3);
+}
+.event-card:hover {
   background-image: url(../img/backk.png);
   border-radius: 20px;
   background-repeat: no-repeat;
@@ -327,7 +373,7 @@ body.no-scroll {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s ease;
 }
 @media screen and (min-width: 768px) {
-  .event-card {
+  .event-card:hover {
     width: 196px;
   }
 }
@@ -341,20 +387,25 @@ body.no-scroll {
   transform: rotateY(-35deg) rotateX(0deg) scale(1.05);
 }
 
-.event-card:hover {
-  transform: scale(1.1);
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-}
-.event-card:hover .event-img {
-  box-shadow: 20px -16px 34px -15px rgba(220, 86, 197, 0.3);
-}
-
 .event__back {
   position: absolute;
   top: 0px;
 }
 
+.event-img {
+  width: 100%;
+  margin: auto;
+  height: 227px;
+  border-radius: 50px 0;
+  background: url(<path-to-image>) lightgray 50%/cover no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .event-img {
+    width: 195px;
+  }
+}
 .event-img {
   width: 100%;
   height: 227px;
@@ -371,7 +422,7 @@ body.no-scroll {
 }
 
 .event-title {
-  color: #DC56C5;
+  color: #dc56c5;
   font-size: 16px;
   margin: 10px;
 }
@@ -771,4 +822,165 @@ body.no-scroll {
   transform: scale(1.05);
   background-color: #4c00ff;
   color: white;
+}
+
+.modals {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 40px;
+}
+
+.modals.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 60px;
+  justify-content: center;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.modal-content .close:hover {
+  transform: scale(1.2);
+}
+
+.team-card {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #3a3a3a;
+  border-radius: 12px;
+  padding: 25px 15px;
+  text-align: center;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(210, 16, 149, 0.6);
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-wrapper,
+.info {
+  position: relative;
+  z-index: 2;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: blur(12px);
+  opacity: 0.35;
+  transform: scale(1);
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.team-card:hover .background {
+  transform: scale(1.25);
+}
+
+.profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+  z-index: 2;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.info h3 {
+  font-size: 16px;
+  margin: 8px 0 3px;
+}
+
+.role {
+  font-size: 13px;
+  color: #f0c040;
+  margin-bottom: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icons a {
+  color: white;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+.icons a:hover {
+  color: #ff3d9a;
+  transform: scale(1.2);
+}
+
+@media (max-width: 900px) {
+  .modal-content {
+    gap: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .modal-content {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 30px;
+    padding: 30px;
+  }
+  .profile {
+    width: 110px;
+    height: 110px;
+  }
 }/*# sourceMappingURL=main.css.map */
