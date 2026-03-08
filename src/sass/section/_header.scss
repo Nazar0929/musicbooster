@@ -15,10 +15,11 @@
         width: 589.0px;
         height: 162.0px;
 
+color: #fee;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0dbf, 0 0 .5em #ff0dbf, 0 0 .1em #ff0dbf, 0 10px 3px #000;
 
 
 
-color: #DC56C5;
 padding-top: 80px;
 margin-bottom: 65px;
 text-align: center;
@@ -49,6 +50,23 @@ height: 122.0px;
       }
 
     }
+
+.header__title span {
+  animation: blink 1s infinite alternate;
+}
+
+.header__title span:nth-of-type(2) {
+  animation: blink 1s linear infinite;
+}
+
+    @keyframes blink {
+  0%,100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
 
 
     &__link {
@@ -93,7 +111,7 @@ gap: 20px;
 
              @media screen and (min-width:786px) {
         padding-bottom: 200px;
-        margin-top: 65px;
+        margin-top: 90px;
         display: flex;
         justify-content: center;
         flex-direction: row;
