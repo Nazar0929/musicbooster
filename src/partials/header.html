@@ -11,18 +11,21 @@
                 <span>WO</span>R<span>LD</span>
             </b>
         </h1>
-        
+
 
         <form action="" class="header__form">
             <div class="header__icon">
                 <input type="text" class="header__input" placeholder="Start searching">
-                <img src="./img/searchicon.png" alt="" class="header__icons">
+                <!-- <img src="./img/searchicon.png" alt="" class="header__icons-start"> -->
+                <svg class="header__icons-start" width="12" height="12"><use href="./img/searchicons.svg"></use></svg>
             </div>
-            <div class="header__icon">
-                <input type="text" class="header__input" placeholder="Choose country">
-                <img src="./img/polygon.png" alt="" class="header__icons">
-
+            <div class="header__icon country">
+                <input type="text" class="header__input" id="countryInput" placeholder="Choose country" readonly />
+                <!-- <img src="./img/polygon.png" class="header__icons" /> -->
+                <svg class="header__icons" width="12" height="12"><use href="./img/Polygons.svg"></use></svg>
+                <ul class="country-list"></ul>
             </div>
         </form>
+
     </div>
 </header>

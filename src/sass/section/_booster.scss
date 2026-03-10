@@ -42,20 +42,14 @@
 //   }
 // }
 
-.event-card {
-  // position: relative;
-  // background-image: url(../../img/backk.png);
-  border-radius: 20px;
-  background-repeat: no-repeat;
-  width: 138px;
-  margin-right: auto;
-  margin-left: auto;
-  // border-radius: 50px 0;
-  // border: 1px solid rgba(220, 86, 197, 0.3);
 
-  background-position: 100% 50%;
-  transition: transform 0.35s ease, background-position 0.35s ease;
-  
+
+.event-card {
+  position: relative;
+  border-radius: 20px;
+  width: 138px;
+  margin: 0 auto;
+  transition: transform 0.35s ease;
 
   @media screen and (min-width: 768px) {
     width: 196px;
@@ -63,70 +57,55 @@
 }
 
 .event-card::after {
-  // background-image: url(../../img/backk.png);
-  content: '';
+  content: "";
   position: absolute;
-  top: 50px;
-  z-index: 10;
+
+  right: -10px;     
+  top: 10px;        
+
+  width: 80%;       
+  height: 40%;
+
   border: 1px solid rgba(220, 86, 197, 0.3);
-  box-sizing: border-box;
   border-radius: 50px 0;
+
   pointer-events: none;
+  z-index: 1; 
 }
 
-.event-card:hover {
-  transform: scale(1.1);
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
 
-  .event-img {
-    box-shadow: 20px -16px 34px -15px rgba(220, 86, 197, 0.3);
-  }
 
-  // position: relative;
-  background-image: url(../img/backk.png);
-  border-radius: 20px;
-  background-repeat: no-repeat;
-  width: 138px;
-  margin-right: auto;
-  margin-left: auto;
-  overflow: hidden;
+@media screen and (min-width: 768px) {
+  .event-card::after {
+    right: -10px;
+    top: 12px;
 
-  background-position: 96% 4%;
-  transform-style: preserve-3d; // важливо для 3D
-  transform-origin: center center; // центр картки
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s ease;
-
-  @media screen and (min-width: 768px) {
-    width: 196px;
+    width: 80%;
+    height: 40%;
   }
 }
 
+
+@media screen and (min-width: 1280px) {
+  .event-card::after {
+    right: -10px;     
+  top: 10px;        
+
+  width: 80%;       
+  height: 40%;
+  }
+}
+
+
 .event-card:hover {
-  transform: rotateY(-35deg) rotateX(0deg);
-  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.3);
+  transform: rotateY(-35deg) scale(1.05);
 }
 
-.event-card:active {
-  transform: rotateY(-35deg) rotateX(0deg) scale(1.05);
+.event-card:hover .event-img {
+  box-shadow: 20px -16px 34px -15px rgba(220, 86, 197, 0.3);
 }
-// .event-card::after {
-//     background-image: url(../../img/backk.png);
-//   content: "";
-//   position: absolute;
-//   top: 50px;
-//   z-index: 10;
-//   border: 1px solid rgba(220, 86, 197, .3);
-//   box-sizing: border-box;
-//   border-radius: 50px 0;
 
-//   pointer-events: none;
-// }
 
-// .event-card:hover {
-//   transform: translateY(-8px);
-//   background-position: 100% 40%;
-// }
 
 .event__back {
   position: absolute;
@@ -141,6 +120,7 @@
   background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 
   object-fit: cover;
+
 
   @media screen and (min-width: 768px) {
     width: 195px;
@@ -208,12 +188,3 @@
   padding: 6px;
 }
 
-// .page-btn.active {
-//   border-radius: 10px 0;
-//   border: 1px solid rgba(255, 61, 154, 0.4);
-//   color: rgba(255, 61, 154, 0.4);
-// }
-// .page-btn.active:hover
-//  {
-//   border: 1px solid rgba(255, 61, 154, 0.4);
-// }
