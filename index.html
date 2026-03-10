@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
     <script type="module" crossorigin src="/musicbooster/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/musicbooster/assets/index-eb8b1893.css">
+    <link rel="stylesheet" href="/musicbooster/assets/index-a922482d.css">
   </head>
   <body>
 
@@ -27,7 +27,7 @@
     <circle class="progress-ring__circle" stroke="#DC56C5" stroke-width="10" fill="transparent" r="90" cx="100" cy="100"/>
   </svg>
   <div class="preloader__logo">
-    <img  src="https://play-lh.googleusercontent.com/6D306YTJ7Xta4PTbMotoWOa0_AoYy6IHVgVk-F4iWPKYq9ha3Wvcvq9X8tgbhJKEA_E" alt="Event Booster">
+    <img src="/musicbooster/assets/preloader-c202a03b.png" alt="Event Booster">
   </div>
 </div>
 
@@ -47,19 +47,22 @@
                 <span>WO</span>R<span>LD</span>
             </b>
         </h1>
-        
+
 
         <form action="" class="header__form">
             <div class="header__icon">
                 <input type="text" class="header__input" placeholder="Start searching">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAOFJREFUeAGVUdsRgjAQzGXgHzugA+xAStAK1E8+QKkArAACBWgLVqB2khIoAAb3GM5xHPGxM5DL5e52syE1oiiK0HGcHUJvTDV935+TJDmpJxD/6rrOsMzats3TNG3ksKqqDRGtkV898pi8REOpJoCz0BiTy16zDEyYbIjj+Kq1DjB4kKpZK+is+gDc5YbBc2nw1B8YGL4WQRJk2yFmOrixnyqGdh81vsjW8LmEdQu28F2x67oXhAfJkQSjtQE/Vtd1DQo59pEz+DJI2jILvUz0xA2sNooiK0zYH7mJ1I+Qpjs3Ims2rmdMqgAAAABJRU5ErkJggg==" alt="" class="header__icons">
+                <!-- <img src="./img/searchicon.png" alt="" class="header__icons-start"> -->
+                <svg class="header__icons-start" width="12" height="12"><use href="/musicbooster/assets/searchicons-42c7bad2.svg"></use></svg>
             </div>
-            <div class="header__icon">
-                <input type="text" class="header__input" placeholder="Choose country">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAICAYAAAAiJnXPAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAJVJREFUeAGNj10RwyAQhLmAgEqIhTpoJVRBpwKY9iRUAZ3BQCXEQeIgkRAhMGTJhIeQ331gF+a+446stT8hxFuc15fiCfAPe54AKq31o4jJOfeBdQdAh7pXDJRejDGllLImojKvDiH03vs7M/czKIFKqRbxsgUsoCjsd4PV6Y6RrgBmoxc5hEUbdOexIxHnwK6mH1c1AGwXOqEA65WhAAAAAElFTkSuQmCC" alt="" class="header__icons">
-
+            <div class="header__icon country">
+                <input type="text" class="header__input" id="countryInput" placeholder="Choose country" readonly />
+                <!-- <img src="./img/polygon.png" class="header__icons" /> -->
+                <svg class="header__icons" width="12" height="12"><use href="/musicbooster/assets/Polygons-62cff0a7.svg"></use></svg>
+                <ul class="country-list"></ul>
             </div>
         </form>
+
     </div>
 </header>
     <section class="booster">
