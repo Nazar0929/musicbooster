@@ -86,7 +86,7 @@ body.no-scroll {
 }
 
 .progress-ring {
-  position: relative; /* додаємо відносне позиціонування */
+  position: relative; 
   width: 200px;
   height: 200px;
   transform: rotate(-90deg);
@@ -104,15 +104,17 @@ body.no-scroll {
   position: absolute;
   top: 50%; 
   left: 50%;
-  transform: translate(-50%, -50%); /* центруємо по горизонталі і вертикалі */
-  width: 100px;
-  height: 100px;
+  transform: translate(-50%, -50%); 
+  width: 130px;
+  height: 130px;
+  
 }
 
 .preloader__logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border-radius: 50%;
 }
 
 @media (max-width: 600px) {
@@ -121,11 +123,11 @@ body.no-scroll {
     height: 150px;
   }
 
-  .preloader__logo {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-  }
+  // .preloader__logo {
+  //   width: 70px;
+  //   height: 70px;
+  //   border-radius: 50%;
+  // }
 
 }
 
