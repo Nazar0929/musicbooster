@@ -117,11 +117,27 @@ body.no-scroll {
   border-radius: 50%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 319px) {
   .progress-ring {
     width: 150px;
     height: 150px;
   }
+
+
+@media (max-width:319px) {
+  .progress-ring {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+  @media (max-width: 319px) {
+  .progress-ring__circle {
+    r: 65;
+    stroke-dasharray: 408;
+    stroke-dashoffset: 408;
+  }
+}
 
   // .preloader__logo {
   //   width: 70px;
