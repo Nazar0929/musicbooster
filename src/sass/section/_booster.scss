@@ -145,9 +145,22 @@
 }
 
 .event-place {
+  display: flex;           
+  align-items: center;
+  justify-content: center;      
+  gap: 5px;                 
   margin: 0 10px 15px;
   color: #aaa;
 }
+
+.event-place .event-svg {
+  order: -1;               
+  width: 7px;               
+  height: 10px;
+  flex-shrink: 0;           
+}
+
+
 
 .pagination {
   display: flex;

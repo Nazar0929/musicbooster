@@ -122,7 +122,6 @@ body.no-scroll {
 }
 @media (max-width: 319px) and (max-width: 319px) {
   .progress-ring__circle {
-    r: 65;
     stroke-dasharray: 408;
     stroke-dashoffset: 408;
   }
@@ -315,9 +314,9 @@ body.no-scroll {
   width: 100%;
   overflow-y: auto;
   border-radius: 0 0 30px 30px;
+  overscroll-behavior: contain;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
-  list-style: none;
   padding: 0;
   margin: 0;
   opacity: 0;
@@ -370,6 +369,289 @@ body.no-scroll {
   border-radius: 30px 30px 0 0;
 }
 
+.auth-wrapper {
+  position: absolute;
+  display: inline-block;
+  top: 20px;
+  right: 8%;
+  z-index: 100;
+}
+
+.sign-in-button {
+  pointer-events: auto;
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 400;
+  z-index: 1000;
+  margin: 60px auto auto;
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #272325 40%, #020104);
+  border-radius: 50px 0;
+  color: #fff;
+  letter-spacing: 1px;
+  transition: all 0.25s;
+  box-shadow: 0 0 10px 3px #ff0dbf;
+  animation: blink 2s linear infinite;
+  text-shadow: 0 -50px 100px, 0 0 2px, 0 0 1em #ff0dbf, 0 0 0.5em #ff0dbf, 0 0 0.1em #ff0dbf, 0 5px 3px #000;
+}
+
+.sign-in-button:hover {
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
+  transform: scale(1.05);
+}
+
+.auth-container {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 200px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #121212;
+  border: 1px solid rgba(255, 0, 255, 0.5);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.auth-container.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.auth-container::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  background: #121212;
+  border-left: 1px solid rgba(255, 0, 255, 0.5);
+  border-top: 1px solid rgba(255, 0, 255, 0.5);
+  transform: rotate(45deg);
+}
+
+.login {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+  gap: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+
+.login img,
+.login svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.login.google {
+  background: #fff;
+  color: #1f1f1f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.login.google:hover {
+  background: #f7f7f7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.login.guest {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid rgba(255, 13, 191, 0.4);
+}
+
+.login.guest svg {
+  color: #ff0dbf;
+}
+
+.login.guest:hover {
+  background: #333;
+  border-color: #ff0dbf;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 13, 191, 0.3);
+}
+
+.user-info {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.user-info.active {
+  display: flex;
+}
+
+.user-avatar-container {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #ff0dbf;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 13, 191, 0.5);
+}
+
+.user-photo {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: #34495e;
+  display: block;
+}
+
+.user-display-name {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  margin-bottom: 5px;
+  font-family: sans-serif;
+}
+
+.logout {
+  width: 160px;
+  height: 45px;
+  background: linear-gradient(45deg, #272325 40%, #020104);
+  border-radius: 50px 0;
+  color: #fff;
+  border: 1px solid rgba(255, 13, 191, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(255, 13, 191, 0.4);
+  text-shadow: 0 0 5px #ff0dbf;
+}
+
+.logout:hover {
+  box-shadow: 0 0 20px rgba(255, 13, 191, 0.7);
+  transform: scale(1.05);
+}
+
+.auth-wrapper.logged-in .sign-in-button,
+.auth-wrapper.logged-in .auth-container {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .auth-wrapper {
+    right: 4%;
+    top: 15px;
+  }
+  .sign-in-button {
+    width: 130px;
+    height: 45px;
+    font-size: 14px;
+    margin-top: 30px;
+  }
+  .auth-container {
+    width: 180px;
+    padding: 12px;
+  }
+  .login {
+    height: 44px;
+    font-size: 13px;
+    padding: 0 15px;
+  }
+  .login img,
+  .login svg {
+    width: 20px;
+    height: 20px;
+  }
+  .user-avatar-container {
+    width: 40px;
+    height: 40px;
+  }
+  .user-display-name {
+    font-size: 14px;
+  }
+  .logout {
+    width: auto;
+    height: 36px;
+    padding: 0 10px;
+    font-size: 13px;
+  }
+  .user-info {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-top: 0;
+  }
+}
+@media (max-width: 480px) {
+  .auth-wrapper {
+    right: 3%;
+    top: 10px;
+  }
+  .sign-in-button {
+    width: 110px;
+    height: 40px;
+    font-size: 13px;
+    margin-top: 20px;
+  }
+  .auth-container {
+    width: 160px;
+  }
+  .login {
+    height: 40px;
+    font-size: 12px;
+    padding: 0 12px;
+    gap: 10px;
+  }
+  .login img,
+  .login svg {
+    width: 18px;
+    height: 18px;
+  }
+  .user-info {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  .user-avatar-container {
+    width: 40px;
+    height: 40px;
+  }
+  .user-display-name {
+    font-size: 14px;
+  }
+  .logout {
+    width: auto;
+    height: 34px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+}
 .events-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -498,8 +780,19 @@ body.no-scroll {
 }
 
 .event-place {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   margin: 0 10px 15px;
   color: #aaa;
+}
+
+.event-place .event-svg {
+  order: -1;
+  width: 7px;
+  height: 10px;
+  flex-shrink: 0;
 }
 
 .pagination {

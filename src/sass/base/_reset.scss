@@ -46,7 +46,7 @@ html {
 body {
 font-family: "Montserrat", sans-serif;
             background-image: url(../img/bgbody.png);
-
+    
     background-color: rgb(0, 0, 0);
         background-position: center;
     background-repeat: no-repeat;
@@ -133,7 +133,7 @@ body.no-scroll {
 
   @media (max-width: 319px) {
   .progress-ring__circle {
-    r: 65;
+    // r: 65;
     stroke-dasharray: 408;
     stroke-dashoffset: 408;
   }
