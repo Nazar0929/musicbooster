@@ -23,7 +23,7 @@ let totalPages = 0;
 let timer;
 
 /* ======================
-Список КРАЇН
+Список країн
 ====================== */
 
 const countries = [
@@ -56,13 +56,12 @@ const countries = [
 ];
 
 function renderCountries() {
-  const markup = countries.map(c =>
-    `<li data-code="${c.code}">${c.name}</li>`
-  ).join("");
+  const markup = countries
+    .map(c => `<li data-code="${c.code}">${c.name}</li>`)
+    .join("");
 
   countryList.innerHTML = markup;
 }
-
 
 renderCountries();
 
@@ -74,7 +73,6 @@ countryInput.addEventListener("click", () => {
   countryBox.classList.toggle("open");
   countryList.classList.toggle("open");
 });
-
 
 countryList.addEventListener("click", e => {
   if (e.target.tagName !== "LI") return;
@@ -104,6 +102,7 @@ document.addEventListener("click", e => {
 
 searchInput.addEventListener("input", () => {
   clearTimeout(timer);
+
   timer = setTimeout(() => {
     keyword = searchInput.value.trim();
     loadEvents(0);
@@ -115,6 +114,7 @@ searchInput.addEventListener("input", () => {
 ====================== */
 
 async function loadEvents(page = 0) {
+
   const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${API_KEY}&countryCode=${countryCode}&keyword=${keyword}&size=20&page=${page}`;
 
   const response = await fetch(url);
@@ -125,44 +125,98 @@ async function loadEvents(page = 0) {
   totalPages = Math.min(data.page?.totalPages || 0, 29);
   currentPage = page;
 
+  if (events.length === 0) {
+    renderNoMatches();
+    pagination.innerHTML = "";
+    return;
+  }
+
   renderEvents(events);
   renderPagination();
 }
+
+/* ======================
+Немає результатів
+====================== */
+
+
+function renderNoMatches() {
+  list.classList.add('no-events'); 
+  list.innerHTML = `
+    <div class="zero-matches">
+      <img class="zero-matches__img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNzUycHQiIGhlaWdodD0iNzUycHQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDc1MiA3NTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8ZGVmcz4KICA8Y2xpcFBhdGggaWQ9ImEiPgogICA8cGF0aCBkPSJtMTYyIDEzOS4yMWg0Mjh2NDczLjU4aC00Mjh6Ii8+CiAgPC9jbGlwUGF0aD4KIDwvZGVmcz4KIDxnIGNsaXAtcGF0aD0idXJsKCNhKSI+CiAgPHBhdGggZD0ibTM4My42NSAyNDguNzNjLTczLjgxMi0yNC44ODctMTM1LjAyLTY0Ljc0Mi0xNzUtMTA5LjUyLTEyOC40IDM5Mi42MSA1My40MjYgNDcwLjAzIDUzLjQyNiA0NzAuMDNzMTg2Ljg0IDYzIDMyNy4xOC0zNDEuNjdjLTU4LjkzOCAxMS40MS0xMzEuNzkgNi4wNTA4LTIwNS42LTE4Ljg0NHptLTExMC41OSA3NC44ODNjMTkuMjAzIDYuNDcyNyAzMS4xMDIgMjYuNDQ1IDMyLjc5NyA1MC42NDggMCAwLTE4LjM5NS0yNi0zOC43ODUtMzIuODc1LTIwLjM5MS02Ljg3NS01MC43NzcgMi42NzE5LTUwLjc3NyAyLjY3MTkgMTYuMDA0LTE4LjIzOCAzNy41NjYtMjYuOTI2IDU2Ljc2Ni0yMC40NDV6bTM2Ljg3NSAxNDMuNzFjLTQ4LjA1NS0xNi4yMDctMTE1Ljg5LTQuODM1OS0xMTUuODktNC44MzU5IDMzLjIzLTI5LjY5NSA4MS4wMi00MS4xODQgMTI2LjI3LTI1LjkzIDQ1LjI0NiAxNS4yNjIgNzYuMzA5IDUzLjM0OCA4NC43NzcgOTcuMDk4IDAuMDAzOTA3IDAuMDA3ODEyLTQ3LjA5NC01MC4xMjUtOTUuMTQ4LTY2LjMzMnptMTEwLjM4LTc0LjI1NGMtMjAuMzk4LTYuODc1LTUwLjc3NyAyLjY3MTktNTAuNzc3IDIuNjcxOSAxNi4wMDQtMTguMjM4IDM3LjU3LTI2LjkyMiA1Ni43Ny0yMC40NDUgMTkuMjAzIDYuNDcyNyAzMS4xMDIgMjYuNDQ1IDMyLjc4OSA1MC42NDggMC4wMDc4MTIgMC0xOC4zODMtMjYtMzguNzgxLTMyLjg3NXoiIGZpbGw9IiNkYzU1YzUiLz4KIDwvZz4KPC9zdmc+Cg==" alt="Drama Theatre Of Ancient Greece Comedy Mask - Theatre Masks">
+      <p class="zero-matches__text">Sorry. We couldn't find any matches</p>
+    </div>
+  `;
+}
+
 
 /* ======================
 Відтворення подій
 ====================== */
 
 function renderEvents(events) {
+  list.classList.remove('no-events');
+
   const markup = events.map(ev => {
     const img = ev.images?.[0]?.url || "";
     const name = ev.name || "";
     const date = ev.dates?.start?.localDate || "";
-    const place = ev._embedded?.venues?.[0]?.name || "";
+    const venue = ev._embedded?.venues?.[0] || {};
+    const place = venue.name || "";
+    const lat = venue.location?.latitude || "";
+    const lng = venue.location?.longitude || "";
 
     return `
       <li class="event-card" data-id="${ev.id}">
         <img class="event-img" src="${img}" alt="${name}">
         <h3 class="event-title">${name}</h3>
         <p class="event-date">${date}</p>
-        <p class="event-place">${place} <svg
-        class="event-svg"
-  width="7"
-  height="10"
-  viewBox="0 0 7 10"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M3.5 0C1.57011 0 0 1.55933 0 3.47595C0 5.88495 3.50344 10 3.50344 10C3.50344 10 7 5.76648 7 3.47595C7 1.55933 5.42995 0 3.5 0ZM4.55602 4.49371C4.26484 4.78284 3.88245 4.92743 3.5 4.92743C3.11761 4.92743 2.7351 4.78284 2.44404 4.49371C1.86173 3.91547 1.86173 2.97455 2.44404 2.39624C2.72601 2.11609 3.10108 1.96179 3.5 1.96179C3.89892 1.96179 4.27393 2.11615 4.55602 2.39624C5.13833 2.97455 5.13833 3.91547 4.55602 4.49371Z"
-    fill="white"
-  />
-</svg></p>
+        <p class="event-place"
+           data-lat="${lat}"
+           data-lng="${lng}"
+           data-place="${place}">
+          ${place}
+          <svg class="event-svg" width="7" height="10" viewBox="0 0 7 10">
+            <path d="M3.5 0C1.57011 0 0 1.55933 0 3.47595C0 5.88495 3.50344 10 3.50344 10C3.50344 10 7 5.76648 7 3.47595C7 1.55933 5.42995 0 3.5 0Z" fill="white"/>
+          </svg>
+        </p>
       </li>
     `;
   }).join("");
 
   list.innerHTML = markup;
+
+  document.querySelectorAll('.event-place').forEach(placeEl => {
+    placeEl.addEventListener('click', () => {
+      const lat = placeEl.dataset.lat;
+      const lng = placeEl.dataset.lng;
+      const name = placeEl.dataset.place;
+
+      modalWrap.innerHTML = ""; // очищаємо модалку
+      modal.classList.remove('is-hidden');
+      body.style.overflow = 'hidden';
+
+      if (lat && lng) {
+        modalWrap.innerHTML = `
+          <h3>${name}</h3>
+          <iframe
+            width="100%"
+            height="400"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${lat},${lng}">
+          </iframe>
+        `;
+      } else {
+        modalWrap.innerHTML = `
+          <h3>${name}</h3>
+          <p style="color:#fff; padding:20px;">No map available for this location.</p>
+        `;
+      }
+    });
+  });
 }
 
 /* ======================
@@ -170,7 +224,9 @@ function renderEvents(events) {
 ====================== */
 
 function renderPagination() {
+
   pagination.innerHTML = "";
+
   const maxVisible = 5;
 
   let start = Math.max(0, currentPage - 2);
@@ -181,89 +237,22 @@ function renderPagination() {
   }
 
   for (let i = start; i < end; i++) {
+
     const btn = document.createElement("button");
+
     btn.className = "page-btn";
     btn.textContent = i + 1;
+
     if (i === currentPage) btn.classList.add("active");
+
     btn.addEventListener("click", () => loadEvents(i));
+
     pagination.appendChild(btn);
-  }
-
-  if (end < totalPages) {
-    const dots = document.createElement("span");
-    dots.textContent = "...";
-    dots.className = "dots";
-    pagination.appendChild(dots);
-
-    const last = document.createElement("button");
-    last.className = "page-btn";
-    last.textContent = totalPages;
-    last.addEventListener("click", () => loadEvents(totalPages - 1));
-    pagination.appendChild(last);
   }
 }
 
 /* ======================
-Модалка
+Запуск
 ====================== */
-
-list.addEventListener("click", openEventModal);
-
-async function openEventModal(e) {
-  const card = e.target.closest(".event-card");
-  if (!card) return;
-
-  const id = card.dataset.id;
-
-  const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${id}.json?apikey=${API_KEY}`);
-  const ev = await response.json();
-
-  modalWrap.innerHTML = createModalMarkup(ev);
-  modal.classList.remove("backdrop-hidden");
-  body.classList.add("no-scroll");
-}
-
-function createModalMarkup(ev) {
-  const img = ev.images?.[0]?.url || "";
-  const name = ev.name || "";
-  const info = ev.info || "No information";
-  const date = ev.dates?.start?.localDate || "";
-  const time = ev.dates?.start?.localTime || "";
-  const city = ev._embedded?.venues?.[0]?.city?.name || "";
-  const place = ev._embedded?.venues?.[0]?.name || "";
-  const url = ev.url || "#";
-
-  return `
-    <img class="modal__preview" src="${img}" />
-    <div class="content">
-      <img class="content__image" src="${img}" />
-      <ul>
-        <li><b>INFO:</b> ${info}</li>
-        <li><b>WHEN:</b> ${date} ${time}</li>
-        <li><b>WHERE:</b> ${city} — ${place}</li>
-        <li><b>WHO:</b> ${name}</li>
-        <li>
-          <a class="modal__btn" href="${url}" target="_blank">BUY TICKETS</a>
-        </li>
-      </ul>
-    </div>
-  `;
-}
-
-closeBtn.addEventListener("click", closeModal);
-
-modal.addEventListener("click", e => {
-  if (!e.target.closest(".modal")) closeModal();
-});
-
-document.addEventListener("keydown", e => {
-  if (e.code === "Escape") closeModal();
-});
-
-function closeModal() {
-  modal.classList.add("backdrop-hidden");
-  body.classList.remove("no-scroll");
-}
-
 
 loadEvents();
